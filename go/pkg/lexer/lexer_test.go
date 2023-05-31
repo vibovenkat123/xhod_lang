@@ -20,6 +20,8 @@ func TestNextToken(t *testing.T) {
     } otherwise {
         hereis cap;
     }
+    23 == 23;
+    23 != 22;
 `
     tests := []struct {
         expectedType token.TokenType
@@ -90,6 +92,14 @@ func TestNextToken(t *testing.T) {
         {token.FALSE, "cap"},
         {token.SEMICOLON, ";"},
         {token.RBRACE, "}"},
+        {token.INT, "23"},
+        {token.EQUAL, "=="},
+        {token.INT, "23"},
+        {token.SEMICOLON, ";"},
+        {token.INT, "23"},
+        {token.NOT_EQUAL, "!="},
+        {token.INT, "22"},
+        {token.SEMICOLON, ";"},
         {token.EOF, ""},
        }
     lxr := New(input)

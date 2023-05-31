@@ -28,6 +28,8 @@ func GetIdent(ident string) TokenType {
 }
 
 const (
+	EQUAL TokenType = "=="
+	NOT_EQUAL TokenType = "!="
 	ILLEGAL TokenType = "ILLEGAL"
 	BANG	TokenType = "!"
 	TRUE TokenType = "TRUE"
