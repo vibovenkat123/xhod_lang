@@ -13,6 +13,11 @@ type Token struct {
 var identKeywords = map[string]TokenType{
 	"fun": FUNCTION,
 	"let": LET,
+	"fax": TRUE,
+	"cap": FALSE,
+	"fr": IF,
+	"otherwise": ELSE,
+	"hereis": RETURN,
 }
 
 func GetIdent(ident string) TokenType {
@@ -24,6 +29,9 @@ func GetIdent(ident string) TokenType {
 
 const (
 	ILLEGAL TokenType = "ILLEGAL"
+	BANG	TokenType = "!"
+	TRUE TokenType = "TRUE"
+	FALSE TokenType = "FALSE"
 	EOF     TokenType = "EOF"
 	// Identifiers + literals
 	IDENT TokenType = "IDENT"
@@ -40,5 +48,13 @@ const (
 	RBRACE    TokenType = "}"
 	// Keywords
 	FUNCTION TokenType = "FUNCTION"
+	IF 	 TokenType = "IF"
+	ELSE	 TokenType = "ELSE"
+	RETURN   TokenType = "RETURN"
 	LET      TokenType = "LET"
+	SLASH   TokenType = "/"
+	ASTERISK TokenType = "*"
+	MINUS TokenType = "-"
+	LESS_THAN TokenType = "<"
+	GREATER_THAN TokenType = ">"
 )

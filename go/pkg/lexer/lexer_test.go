@@ -1,15 +1,25 @@
-package lexer;
+package lexer
 
 import (
-    "testing"
-    "xhod/pkg/token"
+	"testing"
+	"xhod/pkg/token"
 )
 
 func TestNextToken(t *testing.T) {
-    input := `let five = 5;
-let eight = 8;
-let add = fun(x, y) { x + y; };
-let result = add(five, eight);
+    input := `
+    let five = 5;
+    let eight = 8;
+    let add = fun(x, y) {
+        x + y;
+    };
+    let result = add(five, eight);
+    !-/*5;
+    5 < 12 > 5;
+    fr (5 < 10) {
+        hereis fax;
+    } otherwise {
+        hereis cap;
+    }
 `
     tests := []struct {
         expectedType token.TokenType
@@ -51,6 +61,35 @@ let result = add(five, eight);
         {token.IDENT, "eight"},
         {token.RPAREN, ")"},
         {token.SEMICOLON, ";"},
+        {token.BANG, "!"},
+        {token.MINUS, "-"},
+        {token.SLASH, "/"},
+        {token.ASTERISK, "*"},
+        {token.INT, "5"},
+        {token.SEMICOLON, ";"},
+        {token.INT, "5"},
+        {token.LESS_THAN, "<"},
+        {token.INT, "12"},
+        {token.GREATER_THAN, ">"},
+        {token.INT, "5"},
+        {token.SEMICOLON, ";"},
+        {token.IF, "fr"},
+        {token.LPAREN, "("},
+        {token.INT, "5"},
+        {token.LESS_THAN, "<"},
+        {token.INT, "10"},
+        {token.RPAREN, ")"},
+        {token.LBRACE, "{"},
+        {token.RETURN, "hereis"},
+        {token.TRUE, "fax"},
+        {token.SEMICOLON, ";"},
+        {token.RBRACE, "}"},
+        {token.ELSE, "otherwise"},
+        {token.LBRACE, "{"},
+        {token.RETURN, "hereis"},
+        {token.FALSE, "cap"},
+        {token.SEMICOLON, ";"},
+        {token.RBRACE, "}"},
         {token.EOF, ""},
        }
     lxr := New(input)

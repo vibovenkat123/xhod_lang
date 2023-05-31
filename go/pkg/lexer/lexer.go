@@ -33,6 +33,18 @@ func (lxr *Lexer) ReadToken() token.Token {
         tok = newToken(token.LBRACE, lxr.ch)
     case '}':
         tok = newToken(token.RBRACE, lxr.ch)
+    case '-':
+        tok = newToken(token.MINUS, lxr.ch)
+    case '/':
+        tok = newToken(token.SLASH, lxr.ch)
+    case '*':
+        tok = newToken(token.ASTERISK, lxr.ch)
+    case '<':
+        tok = newToken(token.LESS_THAN, lxr.ch)
+    case '>':
+        tok = newToken(token.GREATER_THAN, lxr.ch)
+    case '!':
+        tok = newToken(token.BANG, lxr.ch)
     case 0:
         tok.Literal = ""
         tok.Type = token.EOF

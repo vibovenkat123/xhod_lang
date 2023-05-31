@@ -12,18 +12,17 @@ let indexed = arr[3];
 let obj = {"lang": "xhod"};
 let lang = obj["lang"];
 
-// functions
-let add = fun(a, b) { return a + b; };
+let add = fun(a, b) { hereis a + b; };
 let add_implicit = fun(a, b) { a + b; };
 
 // recursion
 let fibonacci = fun(x) {
-    if (x == 0) {
+    fr (x == 0) {
         0
-    } else {
-        if (x == 1) {
+    } otherwise {
+        fr (x == 1) {
             1
-        } else {
+        } otherwise {
             fibonacci(x - 1) + fibonacci(x - 2);
         }
     }
@@ -31,9 +30,9 @@ let fibonacci = fun(x) {
 
 
 let twice = fun(f, x) {
-    return f(f(x));
+    hereis f(f(x));
 };
 let addTwo = fun(x) {
-    return x + 2;
+    hereis x + 2;
 };
 twice(addTwo, 2); // => 6
