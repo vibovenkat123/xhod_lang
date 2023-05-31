@@ -1,0 +1,39 @@
+// here is an example xhod file
+
+// personal use only
+
+// variables
+let x = 1;
+let y = "xhod";
+let arithmetic = 5 * (4 / 2);
+
+let arr = [1, 5, 1];
+let indexed = arr[3];
+let obj = {"lang": "xhod"};
+let lang = obj["lang"];
+
+// functions
+let add = fun(a, b) { return a + b; };
+let add_implicit = fun(a, b) { a + b; };
+
+// recursion
+let fibonacci = fun(x) {
+    if (x == 0) {
+        0
+    } else {
+        if (x == 1) {
+            1
+        } else {
+            fibonacci(x - 1) + fibonacci(x - 2);
+        }
+    }
+};
+
+
+let twice = fun(f, x) {
+    return f(f(x));
+};
+let addTwo = fun(x) {
+    return x + 2;
+};
+twice(addTwo, 2); // => 6
